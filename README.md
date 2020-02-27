@@ -6,7 +6,7 @@ This repo contains a few simple datasets to demonstrate InterSystems IRIS Integr
 
 The included Dockerfile will pull a IntegratedML-enabled container image from our internal Docker repository, inject a license and set up a few simple datasets. See [here](https://usconfluence.iscinternal.com/display/RE/Quay+Docker+Repository+Access) if you haven't used docker.iscinternal.com before.
 
-:warning: For minimal security reasons, **an IRIS key is not included in this repo**, and this will be your one manual step in order to be able to build an image. Pick a docker-enabled key from the [SE License key bundle](http://twiki6.iscinternal.com/twiki/bin/view/ISC/LicenseKeys) and save it as ```iris.key``` in the root folder of your local download of this repo (so next to README.md and Dockerfile). Then use the following command to start building
+:warning: For minimal security reasons, **an IRIS key is not included in this repo**, and this will be your one manual step in order to be able to build an image. Save the IRIS key provided to you and save it as ```iris.key``` in the root folder of your local download of this repo (so next to README.md and Dockerfile). Then use the following command to start building
 
 ```
 docker build --tag integratedml-demo .
