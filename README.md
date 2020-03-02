@@ -1,12 +1,12 @@
 # IntegratedML Demo Kit
 
-This repo contains a few simple datasets to demonstrate InterSystems IRIS IntegratedML (previously known as QuickML). 
+This repo contains a few simple datasets to demonstrate InterSystems IRIS IntegratedML (previously known as QuickML). Instructions below describe how to use IntegratedML on Docker, Linux/Mac or Windows platforms.
 
-## How to build
+## How to install/build on Docker
 
 The included Dockerfile will pull a IntegratedML-enabled container image from our internal Docker repository, inject a license and set up a few simple datasets. See [here](https://usconfluence.iscinternal.com/display/RE/Quay+Docker+Repository+Access) if you haven't used docker.iscinternal.com before.
 
-:warning: For minimal security reasons, **an IRIS key is not included in this repo**, and this will be your one manual step in order to be able to build an image. Save the IRIS key provided to you and save it as ```iris.key``` in the root folder of your local download of this repo (so next to README.md and Dockerfile). Then use the following command to start building
+:warning: For minimal security reasons, **an IRIS key is not included in this repo**, and this will be your one manual step in order to be able to build an image. Save the IRIS key provided to you as ```iris.key``` in the root folder of your local download of this repo (so next to README.md and Dockerfile). Then use the following command to start building
 
 ```
 docker build --tag integratedml-demo .
@@ -24,7 +24,20 @@ The IRIS password is initialized as SYS, but you can get in directly through the
 docker exec -it integratedml iris sql IRIS
 ```
 
-## How to demo
+## How to install datasets on Linux / Mac
+
+First, install IRIS using the kit installer and license key provided to you as part of the IntegratedML beta program. These instructions will presume you have named the IRIS instance "IRIS", and the directory where IRIS is installed is <IRIS_INSTALL_DIR>. Then from a terminal at the root folder of your local download of this repo (so next to README.md and Dockerfile), run these commands to set the license key and copy the data into IRIS:
+
+```
+iris start IRIS && iris session IRIS < iris.script
+```
+
+## How to install datasets on Windows
+
+First, install IRIS using the kit and license key provided to you as part of the IntegratedML beta program. Running IntegratedML on Windows is a bit limited in functionality, and is best discussed with InterSystems Product Management to determine how best to proceed.
+
+
+## How to use IntegratedML
 
 Using IntegratedML takes only three simple commands:
 
