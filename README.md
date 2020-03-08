@@ -2,7 +2,7 @@
 
 This repo contains a few simple datasets to demonstrate InterSystems IRIS IntegratedML (previously known as QuickML). Instructions below describe how to use IntegratedML on Docker, Linux/Mac or Windows platforms.
 
-*Note: If you are an InterSystems employee, you will use a different github repository, for which you will need to email thomas.dyar@intersystems.com for access*
+**Note**: *If you are an InterSystems employee, you will use a different github repository, for which you will need to email thomas.dyar@intersystems.com for access*
 
 ## How to install/build on Docker
 
