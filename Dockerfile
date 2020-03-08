@@ -3,7 +3,7 @@ FROM docker.iscinternal.com/intersystems/iris:2020.2.0ML.243.0
 # copy files
 COPY data /data
 COPY iris.script /tmp/iris.script
-COPY iris.key /usr/irissys/mgr/iris.key
+COPY iris.key /usr/irissys/mgr/iris.ISCkey
 
 # load demo stuff
 RUN iris start IRIS \
