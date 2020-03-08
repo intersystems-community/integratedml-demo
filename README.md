@@ -2,9 +2,17 @@
 
 This repo contains a few simple datasets to demonstrate InterSystems IRIS IntegratedML (previously known as QuickML). Instructions below describe how to use IntegratedML on Docker, Linux/Mac or Windows platforms.
 
+*Note: If you are an InterSystems employee, you will use a different github repository, for which you will need to email thomas.dyar@intersystems.com for access*
+
 ## How to install/build on Docker
 
-The included Dockerfile will pull a IntegratedML-enabled container image from our internal Docker repository, inject a license and set up a few simple datasets. See [here](https://usconfluence.iscinternal.com/display/RE/Quay+Docker+Repository+Access) if you haven't used docker.iscinternal.com before.
+The included Dockerfile is configured to pull an InterSystems IRIS docker image that contains IntegratedML. The first step will be to download the docker image from the ftp server, according to instructions in an email that you will receive during onboarding into the IntegratedML beta program. Once you have the image file you will register it on your local machine with the following command:
+
+```
+docker  load < integratedml_beta_0.3.tar.gz
+```
+
+The included Dockerfile will use that container image just loaded, inject a license and set up a few simple datasets.
 
 :warning: For minimal security reasons, **an IRIS key is not included in this repo**, and this will be your one manual step in order to be able to build an image. Save the IRIS key provided to you as ```iris.key``` in the root folder of your local download of this repo (so next to README.md and Dockerfile). Then use the following command to start building
 
@@ -47,7 +55,7 @@ TRAIN MODEL Flowers FROM DataMining.IrisDataset;
 SELECT TOP 20 PREDICT(Flowers) AS PredictedSpecies, Species AS ActualSpecies FROM DataMining.IrisDataset;
 ```
 
-Note that the semicolons at the end are for use in a multiline-style client such as DBeaver or SQuirreL and not part of regular IRIS SQL. See the [IntegratedML Syntax overview](https://usconfluence.iscinternal.com/display/TBD/IntegratedML+Syntax) if you want to be more creative. For example, you can add ```USING { 'ml_provider': 'H2O' }``` to your CREATE or TRAIN commands to test the H2O provider instead of the default one.
+Note that the semicolons at the end are for use in a multiline-style client such as DBeaver or SQuirreL and not part of regular IRIS SQL. See the [IntegratedML Syntax overview](https://github.com/tom-dyar/integratedml-demo/doc/IntegratedMLSyntax.pdf) if you want to be more creative. For example, you can add ```USING { "provider": "H2O" }``` to your CREATE or TRAIN commands to test the H2O provider instead of the default one.
 
 ### Included datasets
 
