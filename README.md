@@ -55,7 +55,7 @@ TRAIN MODEL Flowers FROM DataMining.IrisDataset;
 SELECT TOP 20 PREDICT(Flowers) AS PredictedSpecies, Species AS ActualSpecies FROM DataMining.IrisDataset;
 ```
 
-Note that the semicolons at the end are for use in a multiline-style client such as DBeaver or SQuirreL and not part of regular IRIS SQL. See the [IntegratedML Syntax overview](https://github.com/tom-dyar/integratedml-demo/doc/IntegratedMLSyntax.pdf) if you want to be more creative. For example, you can add ```USING { "provider": "H2O" }``` to your CREATE or TRAIN commands to test the H2O provider instead of the default one.
+Note that the semicolons at the end are for use in a multiline-style client such as DBeaver or SQuirreL and not part of regular IRIS SQL. See the [IntegratedML Syntax overview](https://github.com/tom-dyar/integratedml-demo/tree/master/doc/IntegratedMLSyntax.pdf) if you want to be more creative. For example, you can add ```USING { "provider": "H2O" }``` to your CREATE or TRAIN commands to test the H2O provider instead of the default one.
 
 ### Included datasets
 
