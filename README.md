@@ -42,7 +42,7 @@ iris start IRIS && iris session IRIS < iris.script
 
 ## How to install datasets on Windows
 
-First, install IRIS using the kit and license key provided to you as part of the IntegratedML beta program. Running IntegratedML on Windows is a bit limited in functionality, and is best discussed with InterSystems Product Management to determine how best to proceed.
+First, install IRIS using the kit and license key provided to you as part of the IntegratedML beta program. Currently, the Windows version of IntegratedML does not contain a functioning default Provider, so users must CREATE or TRAIN models adding a ```...USING {"provider":"H2O"}``` at the end of the statement.
 
 
 ## How to use IntegratedML
