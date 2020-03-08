@@ -10,5 +10,5 @@ RUN iris start IRIS \
 	&& iris session IRIS < /tmp/iris.script
 
 USER root
-RUN rm /data/*
+RUN rm -r /data/*
 USER irisowner
