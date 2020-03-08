@@ -14,7 +14,9 @@ docker load < integratedml_beta_0.3.tar.gz
 
 The included Dockerfile will use that container image just loaded, inject a license and set up a few simple datasets.
 
-:warning: For minimal security reasons, **an IRIS key is not included in this repo**, and this will be your one manual step in order to be able to build an image. Save the IRIS key provided to you as ```iris.key``` in the root folder of your local download of this repo (so next to README.md and Dockerfile). Then use the following command to start building
+:warning: For minimal security reasons, **an IRIS key is not included in this repo**, and this will be your one manual step in order 
+to be able to build an image. Save the IRIS key provided to you as ```iris.ISCkey``` in the root folder of your local download of 
+this repo (so next to README.md and Dockerfile). Then use the following command to start building
 
 ```
 docker build --tag integratedml-demo .
