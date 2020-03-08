@@ -25,7 +25,4 @@ w ##class(Util.Loader).Load("/data/appointment-noshows.csv","User.appointments")
 do $system.OBJ.Load("/data/Campaign.cls","cf")
 w ##class(Util.Loader).Load("/data/Campaign.csv","User.Campaign",";")
 
-set ^UnitTestRoot = "/src/internal/testing/unit_tests/"
-do ##class(%UnitTest.Manager).RunTest("QuickML\smoke")
-
 halt
