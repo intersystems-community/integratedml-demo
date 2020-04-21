@@ -6,7 +6,7 @@ This repo contains a few simple datasets to demonstrate InterSystems IRIS Integr
 
 ## How to install/build on Docker
 
-The included Dockerfile is configured to pull an InterSystems IRIS docker image that contains IntegratedML. The first step will be to download the docker image from the ftp server, according to instructions in an email that you will receive during onboarding into the IntegratedML beta program. Once you have the image file you will register it on your local machine with the following command:
+The included Dockerfile is configured to pull an InterSystems IRIS docker image that contains IntegratedML. The first step will be to download the docker image from a link in an email that you will receive during onboarding for the IntegratedML beta program. Once you have the image file you will register it on your local machine with the following command:
 
 ```
 docker load < integratedml_beta_0.3.tar.gz
