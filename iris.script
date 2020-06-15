@@ -25,4 +25,8 @@ w ##class(Util.Loader).Load("/data/appointment-noshows.csv","User.appointments")
 do $system.OBJ.Load("/data/Campaign.cls","cf")
 w ##class(Util.Loader).Load("/data/Campaign.csv","User.Campaign",";")
 
+do $system.OBJ.Load("/data/NLPUtils.cls","cf")
+do $system.OBJ.Load("/data/HateSpeech.xml","cf")
+w ##class(NLP.HateSpeech).Load("/data/hate-speech/")
+
 halt
