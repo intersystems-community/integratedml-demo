@@ -1,4 +1,4 @@
-FROM docker.iscinternal.com/intersystems/iris:2020.2.0ML.243.0
+FROM store/intersystems/iris-aa-community:2020.3.0AA.331.0
 
 # copy files
 COPY data /data
