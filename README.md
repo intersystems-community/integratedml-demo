@@ -2,21 +2,11 @@
 
 This repo contains a few simple datasets to demonstrate InterSystems IRIS IntegratedML (previously known as QuickML). Instructions below describe how to use IntegratedML on Docker, Linux/Mac or Windows platforms.
 
-**Note**: *If you are an InterSystems employee, you will use a different github repository, for which you will need to email thomas.dyar@intersystems.com for access*
+**Note**: *If you are an InterSystems employee, and want to use another docker image, see the section [Using a different docker image](#using-a-different-docker-image)*
 
 ## How to install/build on Docker
 
-The included Dockerfile is configured to pull an InterSystems IRIS docker image that contains IntegratedML. The first step will be to download the docker image from a link in an email that you will receive during onboarding for the IntegratedML beta program. Once you have the image file you will register it on your local machine with the following command:
-
-```
-docker load < integratedml_beta_0.3.tar.gz
-```
-
-The included Dockerfile will use that container image just loaded, inject a license and set up a few simple datasets.
-
-:warning: For minimal security reasons, **an IRIS key is not included in this repo**, and this will be your one manual step in order 
-to be able to build an image. Save the IRIS key provided to you as ```iris.ISCkey``` in the root folder of your local download of 
-this repo (so next to README.md and Dockerfile). Then use the following command to start building
+The included Dockerfile will pull an InterSystems IRIS Advanced Analytics Community Edition image the InterSystems Developer Community Docker repository and set up a few simple datasets. Use the following command to start building:
 
 ```
 docker build --tag integratedml-demo .
@@ -34,18 +24,13 @@ The IRIS password is initialized as SYS, but you can get in directly through the
 docker exec -it integratedml iris sql IRIS
 ```
 
-## How to install datasets on Linux / Mac
+### Using a different docker image
 
-First, install IRIS using the kit installer and license key provided to you as part of the IntegratedML beta program. These instructions will presume you have named the IRIS instance "IRIS", and the directory where IRIS is installed is <IRIS_INSTALL_DIR>. Then from a terminal at the root folder of your local download of this repo (so next to README.md and Dockerfile), run these commands to set the license key and copy the data into IRIS:
+If you are an InterSystems employee and would like to use a different docker image, one that requires a valid InterSystems license key, you can edit the Dockerfile to change the image, and copy the license key file into the the image. If you are going to use a docker image from our internal Docker repository, see [here](https://usconfluence.iscinternal.com/display/RE/Quay+Docker+Repository+Access) if you haven't used docker.iscinternal.com before.
 
-```
-iris start IRIS && iris session IRIS < iris.script
-```
-
-## How to install datasets on Windows
-
-First, install IRIS using the kit and license key provided to you as part of the IntegratedML beta program. Currently, the Windows version of IntegratedML does not contain a functioning default Provider, so users must CREATE or TRAIN models adding a ```...USING {"provider":"H2O"}``` at the end of the statement.
-
+:warning: For minimal security reasons, **an IRIS key is not included in this repo**, and this will be your one manual step in order 
+to be able to build an image. Save the IRIS key provided to you as ```iris.ISCkey``` in the root folder of your local download of 
+this repo (so next to README.md and Dockerfile). Then use the following command to start building
 
 ## How to use IntegratedML
 
@@ -57,13 +42,18 @@ TRAIN MODEL Flowers FROM DataMining.IrisDataset;
 SELECT TOP 20 PREDICT(Flowers) AS PredictedSpecies, Species AS ActualSpecies FROM DataMining.IrisDataset;
 ```
 
-Note that the semicolons at the end are for use in a multiline-style client such as DBeaver or SQuirreL and not part of regular IRIS SQL. See the [IntegratedML Syntax overview](https://github.com/tom-dyar/integratedml-demo/tree/master/doc/IntegratedMLSyntax.pdf) if you want to be more creative. For example, you can add ```USING { "provider": "H2O" }``` to your CREATE or TRAIN commands to test the H2O provider instead of the default one.
+Note that the semicolons at the end are for use in a multiline-style client such as DBeaver or SQuirreL and not part of regular IRIS SQL.
+
+### More Resources
+
+- [IntegratedML User Guide](https://docs.intersystems.com/iris20202/csp/docbook/DocBook.UI.Page.cls?KEY=GIML)
+- [Learn IntegratedML from InterSystems Learning Services](https://learning.intersystems.com/course/view.php?id=1346)
 
 ### Included datasets
 
 These are broadly available datasets, but we may not have permission to _re_-distribute them, so keep this repo to yourself:
 - DataMining.IrisDataset: Iris (the flower, not the Gartner MQ ODBMS leader!), as in the classic SAMPLES namespace. You can predict the Species (categorization) or any of the width / length columns (regression)
-- Titanic.Passenger: List of all the passengers of the ill-fated bathtub, with a "Survived" column that makes a fun demo target.
+- Titanic.Passenger: List of all the passengers of the ill-fated bathtub, with a "Survived" column that makes a fun demo targejt.
 - \[SQLUser.\]LoanPerformance: as used at Global Summit, with a "LoanDefault" column that works well for a more serious demo. Derived from a [Kaggle dataset](https://www.kaggle.com/avikpaul4u/vehicle-loan-default-prediction)
 - \[SQLUser.\]Campaign: as used in the campaign showcase in the [ML Toolkit](https://github.com/intersystems/MLToolkit). The target column to put your crosshairs on is RESPONSE
 - \[SQLUser.\]BreastCancer
