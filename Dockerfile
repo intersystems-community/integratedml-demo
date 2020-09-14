@@ -8,7 +8,8 @@ COPY iris.script /tmp/iris.script
 
 # load demo stuff
 RUN iris start IRIS \
-	&& iris session IRIS < /tmp/iris.script
+    && iris session IRIS < /tmp/iris.script \
+    && iris stop IRIS quietly
 
 USER root
 RUN rm -r /data/*
