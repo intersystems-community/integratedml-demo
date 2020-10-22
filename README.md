@@ -46,7 +46,7 @@ Note that the semicolons at the end are for use in a multiline-style client such
 
 ### More Resources
 
-- [IntegratedML User Guide](https://docs.intersystems.com/iris20202/csp/docbook/DocBook.UI.Page.cls?KEY=GIML)
+- [IntegratedML User Guide](https://docs.intersystems.com/irislatest/csp/docbook/DocBook.UI.Page.cls?KEY=GIML)
 - [Learn IntegratedML from InterSystems Learning Services](https://learning.intersystems.com/course/view.php?id=1346)
 
 ### Included datasets
@@ -58,4 +58,4 @@ These are broadly available datasets, but we may not have permission to _re_-dis
 - \[SQLUser.\]Campaign: as used in the campaign showcase in the [ML Toolkit](https://github.com/intersystems/MLToolkit). The target column to put your crosshairs on is RESPONSE
 - \[SQLUser.\]BreastCancer
 - \[SQLUser.\]appointments
-- NLP.HateSpeech - anticipating some work on the NLP end, taking a text classification challenge from [https://github.com/aitor-garcia-p/hate-speech-dataset]
+- NLP.HateSpeech - anticipating some work on the NLP end, taking a text classification challenge from https://github.com/aitor-garcia-p/hate-speech-dataset
