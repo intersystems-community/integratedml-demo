@@ -1,12 +1,12 @@
 # IntegratedML Demo Kit
 
-This repo contains a few simple datasets to demonstrate InterSystems IRIS IntegratedML (previously known as QuickML). Instructions below describe how to use IntegratedML on Docker, Linux/Mac or Windows platforms.
-
-**Note**: *If you are an InterSystems employee, and want to use another docker image, see the section [Using a different docker image](#using-a-different-docker-image)*
+This repo contains a few simple datasets to demonstrate InterSystems IRIS IntegratedML. Instructions below describe how to use IntegratedML on Docker, Linux/Mac or Windows platforms.
 
 ## How to install/build on Docker
 
-The included Dockerfile will pull an InterSystems IRIS Advanced Analytics Community Edition image the InterSystems Developer Community Docker repository and set up a few simple datasets. Use the following command to start building:
+The included Dockerfile will pull an InterSystems IRIS IntegratedML Community Edition image from the Docker Hub and set up a few simple datasets. Full Enterprise Edition container images are available from the [InterSystems Container Repository](https://docs.intersystems.com/components/csp/docbook/Doc.View.cls?KEY=PAGE_containerregistry). 
+
+Use the following command to build the demo image:
 
 ```
 docker build --tag integratedml-demo .
@@ -15,7 +15,7 @@ docker build --tag integratedml-demo .
 To start your container, use the following command (or your favourite equivalent, as this one will drop your container after stopping)
 
 ```
-docker run --rm -d -p 9091:51773 -p 9092:52773 --name integratedml integratedml-demo
+docker run --rm -d -p 9091:1972 -p 9092:52773 --name integratedml integratedml-demo
 ```
 
 The IRIS password is initialized as SYS, but you can get in directly through the following command, the SMP or connecting through a SQL client such as [DBeaver](https://dbeaver.io/)
@@ -23,14 +23,6 @@ The IRIS password is initialized as SYS, but you can get in directly through the
 ```
 docker exec -it integratedml iris sql IRIS
 ```
-
-### Using a different docker image
-
-If you are an InterSystems employee and would like to use a different docker image, one that requires a valid InterSystems license key, you can edit the Dockerfile to change the image, and copy the license key file into the the image. If you are going to use a docker image from our internal Docker repository, see [here](https://usconfluence.iscinternal.com/display/RE/Quay+Docker+Repository+Access) if you haven't used docker.iscinternal.com before.
-
-:warning: For minimal security reasons, **an IRIS key is not included in this repo**, and this will be your one manual step in order 
-to be able to build an image. Save the IRIS key provided to you as ```iris.ISCkey``` in the root folder of your local download of 
-this repo (so next to README.md and Dockerfile). Then use the following command to start building
 
 ## How to use IntegratedML
 
