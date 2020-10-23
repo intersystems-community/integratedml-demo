@@ -1,14 +1,22 @@
-FROM store/intersystems/iris-aa-community:2020.3.0AA.331.0
+FROM store/intersystems/iris-ml-community:2020.3.0.302.0
+
+USER root
+RUN mkdir /data \
+	&& chown irisowner /data
+USER irisowner
 
 # copy files
 COPY data /data
 COPY iris.script /tmp/iris.script
-# Uncomment line below if you want to use a different image that requires a license key
-#COPY iris.ISCkey /usr/irissys/mgr/iris.key
+
+# extract hate-speech dataset
+RUN mkdir /data/hate-speech/ \
+	&& tar -xf /data/hate-speech.tar -C /data/
 
 # load demo stuff
 RUN iris start IRIS \
-	&& iris session IRIS < /tmp/iris.script
+	&& iris session IRIS < /tmp/iris.script \
+    && iris stop IRIS quietly
 
 USER root
 RUN rm -r /data/*
